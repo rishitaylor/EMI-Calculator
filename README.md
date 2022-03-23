@@ -1,16 +1,19 @@
-# emicalculator
+# EMI CALCULATOR
+A simple and minimal EMI calculator designed using flutter and dart.
 
-A new Flutter project.
+## SCREENSHOTS
+![Screenshot2](https://user-images.githubusercontent.com/87377676/159768082-8b9905bf-63f9-479d-8316-91ab4504d624.jpeg)
 
-## Getting Started
+![Screenshot1](https://user-images.githubusercontent.com/87377676/159768063-6ed3c6c7-1a8f-490d-9bf1-6a8c573f5adf.jpeg)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## INSTALLATION
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The APK is hosted On Google Drive And Can be Downloaded From The Same Until Hosted On PlayStore, Ignore The Warnings Regarding Unknown Developer During Installation Since PlayStore Requires All Apk's To Be Signed.
+
+[Gdrive Link](https://drive.google.com/file/d/1mE2qqxCGOM5eKI5J-wtnHl1MtMfSLzYT/view?usp=drivesdk)
+
+## USAGE
+
+Enter the principle amount and then the ROI. Simply use the slider to slect number of years and voila a beautiful piechart appears with all the calculation.
