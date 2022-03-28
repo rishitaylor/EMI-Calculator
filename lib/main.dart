@@ -1,6 +1,3 @@
-
-
-
 import 'package:emicalculator/screens/Emi_cal.dart';
 import 'package:flutter/material.dart';
 
@@ -11,4 +8,3 @@ void main() {
     home: EmiCal(),
   ));
 }
-

@@ -16,7 +16,7 @@ class _EmiCalState extends State<EmiCal> {
   double _currentSliderValue = 1;
   String _emiResult = "";
   String _emiResult2 = "";
-  double total_Payment=0.0;
+  double total_Payment = 0.0;
   int total_Interest = 0;
   int random = Random().nextInt(5);
   int random2 = Random().nextInt(3);
@@ -26,17 +26,12 @@ class _EmiCalState extends State<EmiCal> {
   double num = 4;
   late double interestPayable;
 
-
-
 //  Map<String, double> dataMap = {
 //     "Principal Loan Amount": 7,
 //     "Total Interest": 5,
 //   };
 
-
-  Map<String, double> dataMap = {
-    "nothing": 0.0
-  };
+  Map<String, double> dataMap = {"nothing": 0.0};
 
   TextEditingController tc = TextEditingController();
   TextEditingController tc1 = TextEditingController();
@@ -46,7 +41,7 @@ class _EmiCalState extends State<EmiCal> {
   void _calculate_Emi() {
     double A = 0.0;
     // int P = int.parse(tc.text);
-   double P = double.parse(tc.text);
+    double P = double.parse(tc.text);
     double r = int.parse(tc1.text) / 12 / 100;
     // int n = (_currentSliderValue.toInt()) * 12;
     // int n = (_currentSliderValue.toInt()) * 12;
@@ -60,14 +55,12 @@ class _EmiCalState extends State<EmiCal> {
     print(total_interest);
     // double totalpayment = P + total_interest;
     print(total_Payment);
-     interestPayable = total_Payment - P;
+    interestPayable = total_Payment - P;
     // total_Payment = totalpayment;
     // total_Interest = total_interest;
     double percentInterest = ((interestPayable) / total_Payment) * 100;
 
     _emiResult = A.toStringAsFixed(2);
-
-
 
     //  _compute() {
 
@@ -95,15 +88,10 @@ class _EmiCalState extends State<EmiCal> {
 
     // };
 
-    
-
-
-    
-       dataMap = {
-    "Principal Loan Amount": 100 -percentInterest,
-    "Total Interest": percentInterest,
-  };
-
+    dataMap = {
+      "Principal Loan Amount": 100 - percentInterest,
+      "Total Interest": percentInterest,
+    };
 
     setState(() {
       // dataMap;
@@ -174,7 +162,6 @@ class _EmiCalState extends State<EmiCal> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      
       child: Scaffold(
         // backgroundColor: Color(0xffc8c7ce),
         resizeToAvoidBottomInset: false,
@@ -193,103 +180,105 @@ class _EmiCalState extends State<EmiCal> {
           ],
         ),
         body: Center(
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.start,
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          child: SingleChildScrollView(
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-            children: <Widget>[
-              Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 15.0)),
-                  Expanded(
-                    child: TextField(
-                      controller: tc,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        labelText: 'Amount',
-                        hintText: 'Enter the amount here',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 15.0)),
-                  Expanded(
-                    child: TextField(
-                      controller: tc1,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        labelText: 'ROI',
-                        hintText: 'Enter rate of interest',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 15),
-              Column(
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 15.0)),
-                      Expanded(
-                          child: Slider(
-                        value: _currentSliderValue,
-                        min: 0,
-                        max: 30,
-                        divisions: 6,
-                        label: _currentSliderValue.round().toString(),
-                        onChanged: (double value) {
-                          setState(() {
-                            _currentSliderValue = value;
-                          });
-                        },
-                      ))
-                    ],
-                  ),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 15.0)),
-                      Center(
-                        child: Expanded(
-                          child: Text(
-                            " $_currentSliderValue Years",
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600),
-                          ),
+              children: <Widget>[
+                Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 15.0)),
+                    Expanded(
+                      child: TextField(
+                        controller: tc,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          labelText: 'Amount',
+                          hintText: 'Enter the amount here',
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 10),
-              emiResult(_emiResult),
-              SizedBox(height: 10),
-              slider_value(_emiResult),
-            ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 15.0)),
+                    Expanded(
+                      child: TextField(
+                        controller: tc1,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          labelText: 'ROI',
+                          hintText: 'Enter rate of interest',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 15.0)),
+                        Expanded(
+                            child: Slider(
+                          value: _currentSliderValue,
+                          min: 0,
+                          max: 30,
+                          divisions: 6,
+                          label: _currentSliderValue.round().toString(),
+                          onChanged: (double value) {
+                            setState(() {
+                              _currentSliderValue = value;
+                            });
+                          },
+                        ))
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 15.0)),
+                        Center(
+                          child: Expanded(
+                            child: Text(
+                              " $_currentSliderValue Years",
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10),
+                emiResult(_emiResult),
+                SizedBox(height: 10),
+                slider_value(_emiResult),
+              ],
+            ),
           ),
         ),
       ),
